@@ -47,5 +47,5 @@ frontend ibrahimmansour-frontend-https
 
 backend  ibrahimmansour-backend
         balance roundrobin
-        server 522280-web-01 54.160.115.113:80 check
-        server 522280-web-02 107.23.178.244:80 check
+        server 522280-web-01 54.175.133.215:80 check
+        server 522280-web-02 54.90.26.246:80 check

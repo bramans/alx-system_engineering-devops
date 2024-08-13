@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-"""solution for task 1"""
+"""
+    Uses Reddit API to print the number of subscribers of a subreddit
+"""
+import requests
 
 
-def top_ten(subreddit):
-    """Queries the Reddit API and returns the top 10 hot posts
-    of the subreddit"""
-    import requests
+def number_of_subscribers(subreddit):
+    """
+    Get the number of subscribers for a given subreddit
+    """
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {'user-agent': 'request'}
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
-    sub_info = requests.get("https://www.reddit.com/r/{}/hot.json?limit=10"
-                            .format(subreddit),
-                            headers={"User-Agent": "My-User-Agent"},
-                            allow_redirects=False)
-    if sub_info.status_code >= 300:
-        print('None')
-    else:
-        [print(child.get("data").get("title"))
-         for child in sub_info.json().get("data").get("children")]
+    if response.status_code != 200:
+        return 0
+
+    data = response.json().get("data")
+    num_subs = data.get("subscribers")
+
+    return num_subs

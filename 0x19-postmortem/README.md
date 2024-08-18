@@ -32,4 +32,4 @@
   - **Document Procedures:** Create detailed documentation for handling similar incidents in the future to reduce response time.
 
 ## Diagram
-![Outage Diagram]('1*m-GY-G6UfWYMl8BD7uBDzQ.png')
+![Outage Diagram](1*m-GY-G6UfWYMl8BD7uBDzQ.png)

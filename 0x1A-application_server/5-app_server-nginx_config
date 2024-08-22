@@ -1,0 +1,28 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /root/AirBnB_clone_v4/web_dynamic;
+
+    location / {
+        proxy_pass http://127.0.0.1:5003/2-hbnb;
+    }
+
+    location /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000;
+    }
+
+    location ~ ^/airbnb-dynamic/number_odd_or_even/(\d+)$ {
+        proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:5002;
+    }
+
+    location /static/ {
+        # Assuming you have static files in this directory
+        # Uncomment and update the alias if you have static content
+        # alias /root/AirBnB_clone_v4/web_dynamic/static/;
+    }
+}
+
